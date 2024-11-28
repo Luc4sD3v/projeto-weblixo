@@ -1,6 +1,5 @@
- @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
  
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,16 +10,32 @@
 html {
     scroll-behavior: smooth;
 }
+
 body {
-    background-image: url(aura-logo.png);
+    /*background-image: url(aura-logo.png);*/
+
+    /*implementação para darkmode*/
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    /*fim da implementação para darkmode*/
     background-size: 10%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
 }
 
+/* Estilo do Modo Escuro */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
 header {
-   position: fixed;
+    position: fixed;
     height: 100px;
     width: 1300px;
     border: 3px solid black;
@@ -30,7 +45,34 @@ header {
     margin-top: 20px; /*Margem pra não encostar em cima*/
     z-index: 10;
     background-color: white;
+    /*implementação para darkmode*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
 }
+
+header .toggle-button {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Coloca o botão no canto superior direito */
+}
+
+/* Estilo para o modo escuro no cabeçalho */
+header.dark-mode {
+    background-color: #1e1e1e;  /* Cor escura para o cabeçalho */
+    border: 3px solid white;     /* Borda branca no modo escuro */
+}
+
+/* Alterações para os itens do cabeçalho quando em dark mode */
+header.dark-mode ul li {
+    color: white; /* Títulos e textos em branco */
+}
+
+header.dark-mode nav a {
+    color: white; /* Links em branco no modo escuro */
+}
+   /*fim da implementação para darkmode*/
 
 header section {
     display: flex;
@@ -46,8 +88,14 @@ header img {
     margin: 1px;
     display: inline;
     justify-content: center;
+    /*implementação para darkmode*/
+    transition: all 0.3s ease;
 }
 
+header.dark-mode img {
+    filter: brightness(0.7); /* Escurece as imagens no modo escuro */
+}
+    /*fim da implementação para darkmode*/
 header ul {
     display: flex;
     list-style: none;
@@ -84,7 +132,13 @@ main {
     gap: 500px;
 }
 
-
+/*Estilo para o modo escuro*/
+main.dark-mode {
+    background-color: #1e1e1e; /* Fundo escuro */
+    color: white; /* Texto claro */
+    transition: background-color 0.3s, color 0.3s;
+}
+/* Fim da implementação para o modo escuro*/
 .integrantes  {
     position: relative; 
     margin-right: 1000px;
@@ -142,6 +196,24 @@ footer img {
 
 /* CSS DA GALERIA */
 
+header.dagaleria{
+    position: relative;
+}
+.titulo{
+    font-size: 16px;
+    margin-right: 10px;
+    
+    
+}
+.linha{
+    width: 100%;
+    height: 2px; 
+    background-color: #ccc; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    
+}
+
 .maingaleria{
     width: 100%;
     height:100vh ;
@@ -149,26 +221,89 @@ footer img {
     align-items: center;
     justify-content: center;
     padding: 2%;
+    margin-bottom: 10%;
 }
+
+/* Galeria */
+/*.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}/
+
+/* Estilo do botão */
+.toggle-button {
+    background-color: transparent; 
+    color: black; /* Cor do texto */
+    border: none; /* Remove a borda */
+    font-size: 14px; /* Tamanho de fonte discreto */
+    padding: 5px 15px; /* Padding para dar um espaço confortável */
+    cursor: pointer; /* Aparece como botão */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Coloca o botão no canto superior direito */
+}
+
+/* Mudança de cor ao passar o mouse */
+.toggle-button:hover {
+    background-color: #f0f0f0; /* Cor de fundo sutil */
+    color: #555; /* Cor de texto ao passar o mouse */
+}
+/* Estilo do botão */
+/*
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #eacb30;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #eacb30;
+}
+*/
 .galeria{
     width: 100%;
     height: 90vh;
     display: flex;
     align-items: center;
-    margin-top: 20%;
+    margin-top: auto;
+    /*implementação darkmode*/
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 20px;
+    /*fim da implementação darkmode*/
 }
+
 .single-galeria{
    position: relative;
    width: 20%; 
    height: 100%;
    margin: 0 5px;
    transition: width 1s;
+   /*implementação darkmode*/
+   border-radius: 5px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   /*fim da implementação darkmode*/
 }
-header div.galeria div.single-galeria:first-child{
-    width: 35% !important;
+div.galeria div.single-galeria:first-child{
+    width: 35%;
 }
-header div.galeria div.single-galeria:hover :first-child{
-    width: 20% !important;
+div.galeria:hover div.single-galeria:first-child{
+    width: 20%;
+}
+div.galeria div.single-galeria:hover{
+    width: 35%;
+}
+div.galeria div.single-galeria:first-child:hover{
+    width: 35%;
 }
 
 
@@ -193,18 +328,21 @@ header div.galeria div.single-galeria:hover :first-child{
     line-height: 28px;
     color: white;
  }
- .info a{
+ .info a {
     font-size: 14px;
     line-height: 28px;
     color: gold;
     text-decoration: none;
+    padding: 5px 15px;
+    border: 2px solid gold;
+    border-radius: 5px;
+    background: transparent;
+    transition: all 0.3s ease;
  }
  .info a:hover{
-   text-decoration: underline; 
- }
-
- 
-
-
+    background: gold;
+    color: black;
+    text-decoration: none;
+}
 
 
