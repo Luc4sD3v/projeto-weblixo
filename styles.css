@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
- 
+
+/* Configurações Gerais */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Montserrat", sans-serif; /* Fonte*/
+    font-family: "Montserrat", sans-serif; /* Fonte */
 }
 
 html {
@@ -12,67 +13,40 @@ html {
 }
 
 body {
-    /*background-image: url(aura-logo.png);*/
-
-    /*implementação para darkmode*/
     background-color: white;
     color: black;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     transition: background-color 0.3s, color 0.3s;
-    /*fim da implementação para darkmode*/
     background-size: 10%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
 }
 
-/* Estilo do Modo Escuro */
+/* Estilo do Modo Escuro para o Body */
 body.dark-mode {
     background-color: #121212;
     color: white;
 }
 
+/* Configurações do Header */
 header {
     position: fixed;
     height: 100px;
     width: 1300px;
     border: 3px solid black;
-    margin-left: 10px; /*Margem pra não encostar na borda*/
+    margin-left: 10px; /* Margem pra não encostar na borda */
     display: flex;
     border-radius: 80px;
-    margin-top: 20px; /*Margem pra não encostar em cima*/
+    margin-top: 20px; /* Margem pra não encostar em cima */
     z-index: 10;
-    background-color: white;
-    /*implementação para darkmode*/
     justify-content: space-between;
     align-items: center;
     padding: 20px;
     background-color: #f4f4f4;
 }
-
-header .toggle-button {
-    position: absolute;
-    top: 20px;
-    right: 20px; /* Coloca o botão no canto superior direito */
-}
-
-/* Estilo para o modo escuro no cabeçalho */
-header.dark-mode {
-    background-color: #1e1e1e;  /* Cor escura para o cabeçalho */
-    border: 3px solid white;     /* Borda branca no modo escuro */
-}
-
-/* Alterações para os itens do cabeçalho quando em dark mode */
-header.dark-mode ul li {
-    color: white; /* Títulos e textos em branco */
-}
-
-header.dark-mode nav a {
-    color: white; /* Links em branco no modo escuro */
-}
-   /*fim da implementação para darkmode*/
 
 header section {
     display: flex;
@@ -80,42 +54,27 @@ header section {
     width: 100%;
 }
 
-/*Configurações da imagem-logo*/
-header img {
-    width: 90px;
-    height: 92px;
-    border-radius: 100px;
-    margin: 1px;
-    display: inline;
-    justify-content: center;
-    /*implementação para darkmode*/
-    transition: all 0.3s ease;
-}
-
-header.dark-mode img {
-    filter: brightness(0.7); /* Escurece as imagens no modo escuro */
-}
-    /*fim da implementação para darkmode*/
 header ul {
     display: flex;
     list-style: none;
     gap: 9.5px;
 }
-/*Configurações dos nomes dos participantes*/
+
 header li {
     color: rgb(0, 0, 0);
     margin-top: 35px;
     margin-left: 14px;
     font-size: 14px;
 }
-/*Destaque quando passar o mouse*/
+
+/* Destaque ao passar o mouse nos itens */
 header li:hover {
     font-size: 17px;
     transition: font-size 0.3s ease;
     color: rgb(255, 0, 0);
 }
-/*Menu "Home", "Galeria"e"Cadastro"*/
 
+/* Configurações do Menu */
 header nav {
     margin-left: 10px;
 }
@@ -126,21 +85,71 @@ nav a {
     margin-left: 80px;
 }
 
+/* Configurações da Imagem do Logo */
+header img {
+    width: 90px;
+    height: 92px;
+    border-radius: 100px;
+    margin: 1px;
+    display: inline;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Estilo do Modo Escuro para o Header */
+header.dark-mode {
+    background-color: #1e1e1e;
+    border: 3px solid white;
+}
+
+header.dark-mode ul li {
+    color: white;
+}
+
+header.dark-mode nav a {
+    color: white;
+}
+
+header.dark-mode img {
+    filter: brightness(0.7); /* Escurece as imagens no modo escuro */
+}
+
+/* Botão de Alternar Tema */
+.toggle-button {
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-size: 14px;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.toggle-button:hover {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+/* Configurações do Main */
 main {
     padding-top: 120px;
     margin-bottom: 50px;
     gap: 500px;
 }
 
-/*Estilo para o modo escuro*/
+/* Estilo do Modo Escuro para o Main */
 main.dark-mode {
-    background-color: #1e1e1e; /* Fundo escuro */
-    color: white; /* Texto claro */
+    background-color: #1e1e1e;
+    color: white;
     transition: background-color 0.3s, color 0.3s;
 }
-/* Fim da implementação para o modo escuro*/
-.integrantes  {
-    position: relative; 
+
+/* Configurações da Seção de Integrantes */
+.integrantes {
+    position: relative;
     margin-right: 1000px;
 }
 
@@ -154,11 +163,13 @@ main.dark-mode {
     margin-bottom: 20px;
 }
 
+/* Hover para as Imagens de Integrantes */
 .integrantes:hover img {
     width: 300px;
     transition: 0.5s ease;
 }
 
+/* Descrição dos Integrantes */
 .integrantes .descricao {
     position: absolute;
     bottom: 0;
@@ -179,11 +190,9 @@ main.dark-mode {
     transform: translateX(65%);
 }
 
+/* Configurações do Footer */
 footer {
     background-color: rgb(255, 255, 255);
-}
-
-footer {
     text-align: center;
 }
 
@@ -193,30 +202,27 @@ footer img {
     width: 100px;
 }
 
-
-/* CSS DA GALERIA */
-
-header.dagaleria{
+/* Configurações da Galeria */
+header.dagaleria {
     position: relative;
 }
-.titulo{
+
+.titulo {
     font-size: 16px;
     margin-right: 10px;
-    
-    
-}
-.linha{
-    width: 100%;
-    height: 2px; 
-    background-color: #ccc; 
-    margin-top: 10px; 
-    margin-bottom: 10px; 
-    
 }
 
-.maingaleria{
+.linha {
     width: 100%;
-    height:100vh ;
+    height: 2px;
+    background-color: #ccc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.maingaleria {
+    width: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -225,110 +231,71 @@ header.dagaleria{
 }
 
 /* Galeria */
-/*.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    padding: 20px;
-}/
-
-/* Estilo do botão */
-.toggle-button {
-    background-color: transparent; 
-    color: black; /* Cor do texto */
-    border: none; /* Remove a borda */
-    font-size: 14px; /* Tamanho de fonte discreto */
-    padding: 5px 15px; /* Padding para dar um espaço confortável */
-    cursor: pointer; /* Aparece como botão */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    position: absolute;
-    top: 20px;
-    right: 20px; /* Coloca o botão no canto superior direito */
-}
-
-/* Mudança de cor ao passar o mouse */
-.toggle-button:hover {
-    background-color: #f0f0f0; /* Cor de fundo sutil */
-    color: #555; /* Cor de texto ao passar o mouse */
-}
-/* Estilo do botão */
-/*
-button {
-    margin: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #eacb30;
-    color: white;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #eacb30;
-}
-*/
-.galeria{
+.galeria {
     width: 100%;
     height: 90vh;
     display: flex;
     align-items: center;
     margin-top: auto;
-    /*implementação darkmode*/
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     padding: 20px;
-    /*fim da implementação darkmode*/
 }
 
-.single-galeria{
-   position: relative;
-   width: 20%; 
-   height: 100%;
-   margin: 0 5px;
-   transition: width 1s;
-   /*implementação darkmode*/
-   border-radius: 5px;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-   /*fim da implementação darkmode*/
+.single-galeria {
+    position: relative;
+    width: 20%;
+    height: 100%;
+    margin: 0 5px;
+    transition: width 1s;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-div.galeria div.single-galeria:first-child{
+
+/* Hover para a Galeria */
+div.galeria div.single-galeria:first-child {
     width: 35%;
 }
-div.galeria:hover div.single-galeria:first-child{
+
+div.galeria:hover div.single-galeria:first-child {
     width: 20%;
 }
-div.galeria div.single-galeria:hover{
-    width: 35%;
-}
-div.galeria div.single-galeria:first-child:hover{
+
+div.galeria div.single-galeria:hover {
     width: 35%;
 }
 
+div.galeria div.single-galeria:first-child:hover {
+    width: 35%;
+}
 
-.single-galeria img{
-    width: 100%; 
+.single-galeria img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
- }
- .info{
+}
+
+/* Informações na Galeria */
+.info {
     position: absolute;
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 65%, transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 65%, transparent);
     padding: 16% 8%;
     bottom: 0%;
- }
- .info h1{
+}
+
+.info h1 {
     font-size: 26px;
     color: white;
- }
- .info p{
+}
+
+.info p {
     font-size: 14px;
     line-height: 28px;
     color: white;
- }
- .info a {
+}
+
+.info a {
     font-size: 14px;
     line-height: 28px;
     color: gold;
@@ -338,11 +305,10 @@ div.galeria div.single-galeria:first-child:hover{
     border-radius: 5px;
     background: transparent;
     transition: all 0.3s ease;
- }
- .info a:hover{
+}
+
+.info a:hover {
     background: gold;
     color: black;
     text-decoration: none;
 }
-
-
